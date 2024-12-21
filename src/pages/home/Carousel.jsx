@@ -7,7 +7,7 @@ const Carousel = () => {
       title: "Delicious Pasta",
       description: "Enjoy a rich, creamy pasta with our special sauce.",
       imageUrl:
-        "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/12/27/0/FNK_antipasti-penne_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1388282548547.jpeg",
+        "https://images.unsplash.com/photo-1603570416072-84068a0f1358?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       altText: "Plate of creamy pasta",
     },
     {
@@ -15,7 +15,7 @@ const Carousel = () => {
       title: "Grilled Steak",
       description: "Juicy and tender steak grilled to perfection.",
       imageUrl:
-        "https://cdn.momsdish.com/wp-content/uploads/2021/06/Ribeye-Steak-Recipe09.jpg",
+        "https://images.unsplash.com/photo-1657143375273-75371e23f7f0?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       altText: "Grilled steak on a plate",
     },
     {
@@ -23,7 +23,7 @@ const Carousel = () => {
       title: "Veggie Pizza",
       description: "Fresh, healthy veggie pizza with a crispy crust.",
       imageUrl:
-        "https://whattheforksfordinner.com/wp-content/uploads/2018/05/DSC_0012-1.jpg",
+        "https://images.unsplash.com/photo-1730929851365-015a0b62ae5b?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       altText: "Veggie pizza with toppings",
     },
     {
@@ -31,21 +31,21 @@ const Carousel = () => {
       title: "Chocolate Cake",
       description: "Indulge in a rich, decadent chocolate cake.",
       imageUrl:
-        "https://www.thespruceeats.com/thmb/w282FiA18oOHgNqftYbo93B5an8=/5928x3957/filters:fill(auto,1)/classic-and-easy-chocolate-cake-recipe-995137-hero-01-e361ee51a67d4c12afb451cc48fb1940.jpg",
+        "https://images.unsplash.com/photo-1623065561776-b346afc11633?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       altText: "Chocolate cake with a slice taken out",
     },
   ];
   return (
     <>
       <div>
-        <div className="carousel w-full">
+        <div className="carousel w-full h-screen">
           {carouselItems.map((item) => (
             <div
               key={item.id}
               id={`item${item.id}`}
               className="carousel-item w-full relative"
             >
-              <img src={item.imageUrl} className="w-full max-h-[80vh]" />
+              <img src={item.imageUrl} className="w-full" />
               <div className="absolute w-full h-full flex justify-center items-center flex-col gap-4">
                 <h2 className="text-4xl font-bold text-black">{item.title}</h2>
                 <p className="text-lg text-black text-center">
