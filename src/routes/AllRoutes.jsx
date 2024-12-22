@@ -6,6 +6,7 @@ import SignUp from "../pages/auth/SignUp";
 import AddFoodLayout from "../pages/addFood/AddFoodLayout";
 import AllFoodsLayout from "../pages/allFoods/AllFoodsLayout";
 import FoodLayout from "../pages/food/FoodLayout";
+import PurchaseLayout from "../pages/purchase/PurchaseLayout";
 const Router = () => {
   return (
     <>
@@ -21,6 +22,9 @@ const Router = () => {
 
         {/* Food Details Page  */}
         <Route path="foods/:id" element={<FoodLayout />} />
+
+        {/* Purchase page  */}
+        <Route path="purchase/:id" element={<PurchaseLayout />} />
 
         {/* Auth Page  */}
         <Route path="/auth" element={<AuthLayout />}>

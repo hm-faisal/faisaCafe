@@ -1,46 +1,48 @@
-import InputBox from "../../components/InputBox";
-import TextArea from "../../components/TextArea";
-import useAuth from "../../hooks/useAuth";
-import swal from "sweetalert";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import useAxios from "../../hooks/useAxios";
-const AddFoodForm = () => {
+import useAuth from "../../hooks/useAuth";
+import InputBox from "../../components/InputBox";
+import moment from "moment";
+import swal from "sweetalert";
+
+const PurchaseForm = ({ id }) => {
   const { user } = useAuth();
   const axiosBase = useAxios();
-  const addFoodHandler = (e) => {
+  const [foodInfo, setFoodInfo] = useState({});
+  useEffect(() => {
+    axiosBase
+      .get(`/foods/${id}`)
+      .then((res) => setFoodInfo(res.data))
+      .catch((e) => console.log(e));
+  }, []);
+
+  const buyFoodHandler = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const foodInfo = Object.fromEntries(form.entries());
 
     axiosBase
-      .post("/add-food", foodInfo)
+      .post(`/buy/${id}`, foodInfo)
       .then((res) => {
+        console.log(res.data);
         if (res.data.success) {
-          swal("Food Added", "successfully added your food", "success");
+          swal("Food Ordered", `${res.data.message}`, "success");
         }
       })
       .catch((e) => console.log(e));
   };
+
+  console.log(user);
   return (
     <>
       <div className="max-w-xl mx-auto">
-        <form className="card-body" onSubmit={addFoodHandler}>
+        <form className="card-body" onSubmit={buyFoodHandler}>
           <InputBox
             label="Food Name"
             type="text"
             name="food_name"
-            placeholder="enter Food Name"
-          />
-          <InputBox
-            label="Food Image URL"
-            name="food_img_url"
-            type="url"
-            placeholder="enter Food Image URL"
-          />
-          <InputBox
-            label="Food category"
-            name="food_category"
-            type="text"
-            placeholder="enter Food category"
+            defaultValue={foodInfo.food_name}
           />
           <InputBox
             label="Food Quantity"
@@ -52,18 +54,14 @@ const AddFoodForm = () => {
             label="Food Price"
             name="food_price"
             type="number"
-            placeholder="Food Price"
+            defaultValue={foodInfo.food_price}
+            readOnly={true}
           />
           <InputBox
-            label="Food Origin"
-            type="text"
-            name="food_origin"
-            placeholder="Food Origin"
-          />
-          <TextArea
-            label="Food Description"
-            name="food_description"
-            placeholder="Enter food description"
+            label="Food Buying Date"
+            type="date"
+            name="food_Buy_Date"
+            defaultValue={moment().format("YYYY-MM-DD")}
           />
           <InputBox
             label="Username"
@@ -77,13 +75,12 @@ const AddFoodForm = () => {
             label="Email"
             name="added_by_email"
             type="email"
-            placeholder=""
-            defaultValue={user?.email}
+            defaultValue={user.email}
             readOnly={true}
           />
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Add Food</button>
+            <button className="btn btn-primary">Buy Now</button>
           </div>
         </form>
       </div>
@@ -91,4 +88,8 @@ const AddFoodForm = () => {
   );
 };
 
-export default AddFoodForm;
+PurchaseForm.propTypes = {
+  id: PropTypes.string,
+};
+
+export default PurchaseForm;

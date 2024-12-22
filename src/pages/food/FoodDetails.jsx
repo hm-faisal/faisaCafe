@@ -28,8 +28,13 @@ const FoodDetails = ({ id }) => {
             <p className="py-1">Stock: {foodInfo.food_quantity}</p>
             <p className="py-1">Price: {foodInfo.food_price}</p>
             <p className="py-1">Food Origin: {foodInfo.food_origin}</p>
-            <p className="py-1">Description: {foodInfo.food_description}</p>
-            <Link to={""} className="btn btn-primary">
+            <p className="py-1">
+              Description:{" "}
+              {foodInfo.food_description
+                ? foodInfo.food_description
+                : "No description Provided"}
+            </p>
+            <Link to={`/purchase/${foodInfo._id}`} className="btn btn-primary">
               Purchase
             </Link>
           </div>

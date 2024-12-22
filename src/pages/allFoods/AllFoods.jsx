@@ -11,7 +11,6 @@ const AllFoods = () => {
       .then((res) => setFoods(res.data))
       .catch((e) => console.log(e));
   }, []);
-  console.log(foods);
   return (
     <>
       <div className="flex justify-center items-center flex-col gap-4 my-12">
