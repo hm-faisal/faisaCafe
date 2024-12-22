@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const FoodCard = ({ food }) => {
+const MyFoodsCard = ({ food }) => {
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
@@ -23,6 +23,6 @@ const FoodCard = ({ food }) => {
   );
 };
 
-FoodCard.propTypes = { food: PropTypes.object };
+MyFoodsCard.propTypes = { food: PropTypes.object };
 
-export default FoodCard;
+export default MyFoodsCard;

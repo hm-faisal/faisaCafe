@@ -33,7 +33,6 @@ const PurchaseForm = ({ id }) => {
       .catch((e) => console.log(e));
   };
 
-  console.log(user);
   return (
     <>
       <div className="max-w-xl mx-auto">

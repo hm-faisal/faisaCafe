@@ -16,9 +16,7 @@ const SignUp = () => {
     );
     signUpUserWithEmailPassword(email, password)
       .then((res) => {
-        updateUser(name, profile)
-          .then(() => console.log("user name, Image added"))
-          .catch((e) => console.log(e));
+        updateUser(name, profile).catch((e) => console.log(e));
         setUser(res.user);
         navigate(location.state ? location?.state : "/");
         swal("Sign In ", "successfully Sign In", "success");

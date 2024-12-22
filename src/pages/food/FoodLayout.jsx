@@ -5,7 +5,6 @@ import FoodDetails from "./FoodDetails";
 
 const FoodLayout = () => {
   const { id } = useParams();
-  console.log(id);
   return (
     <>
       <Header />

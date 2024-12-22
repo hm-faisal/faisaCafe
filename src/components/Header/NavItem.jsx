@@ -13,6 +13,9 @@ const NavItem = () => {
       <NavLink to={"/gallery"} className={navLinkClassName}>
         Gallery
       </NavLink>
+      <NavLink to={"/my-added-foods"} className={navLinkClassName}>
+        My Foods
+      </NavLink>
       {/* <NavLink className={'font-medium'}></NavLink> */}
     </>
   );

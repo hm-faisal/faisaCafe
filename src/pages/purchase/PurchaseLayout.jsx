@@ -5,7 +5,6 @@ import PurchaseForm from "./PurchaseForm";
 
 const PurchaseLayout = () => {
   const { id } = useParams();
-  console.log(id);
   return (
     <>
       <Header />

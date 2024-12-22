@@ -13,7 +13,6 @@ const FoodDetails = ({ id }) => {
       .catch((e) => console.log(e));
   }, []);
 
-  console.log(foodInfo);
   return (
     <>
       <div className="hero bg-base-200 min-h-screen">
