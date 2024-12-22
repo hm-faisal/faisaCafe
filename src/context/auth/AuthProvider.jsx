@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
 
       if (currentUser) {
         axiosBase
-          .post("/jwt", userEmail)
+          .post("/jwt", userEmail, { withCredentials: true })
           .then()
           .catch((e) => console.log(e));
         setUser(currentUser);
@@ -42,6 +42,8 @@ const AuthProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(user);
+
   // Register New user with email password
 
   const signUpUserWithEmailPassword = (email, password) => {
@@ -51,8 +53,8 @@ const AuthProvider = ({ children }) => {
 
   // Update user profile
 
-  const updateUser = (name, profile) => {
-    const userNameAndProfileImage = { name, photoURL: profile };
+  const updateUser = (displayName, photoURL) => {
+    const userNameAndProfileImage = { displayName, photoURL };
     return updateProfile(auth.currentUser, userNameAndProfileImage);
   };
 
