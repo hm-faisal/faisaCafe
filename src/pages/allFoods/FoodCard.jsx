@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const FoodCard = ({ food }) => {
   return (
@@ -13,7 +14,9 @@ const FoodCard = ({ food }) => {
         <p>Category : {food.food_category}</p>
         <p>Quantity : {food.food_quantity}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">See Details</button>
+          <Link to={`/foods/${food._id}`} className="btn btn-primary">
+            See Details
+          </Link>
         </div>
       </div>
     </div>

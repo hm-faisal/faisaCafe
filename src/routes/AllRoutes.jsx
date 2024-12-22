@@ -5,6 +5,7 @@ import SignIn from "../pages/auth/SignIn";
 import SignUp from "../pages/auth/SignUp";
 import AddFoodLayout from "../pages/addFood/AddFoodLayout";
 import AllFoodsLayout from "../pages/allFoods/AllFoodsLayout";
+import FoodLayout from "../pages/food/FoodLayout";
 const Router = () => {
   return (
     <>
@@ -17,6 +18,9 @@ const Router = () => {
 
         {/* All Food Page  */}
         <Route path="all-foods" element={<AllFoodsLayout />} />
+
+        {/* Food Details Page  */}
+        <Route path="foods/:id" element={<FoodLayout />} />
 
         {/* Auth Page  */}
         <Route path="/auth" element={<AuthLayout />}>

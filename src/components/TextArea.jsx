@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const TextArea = ({ label, placeholder }) => {
+const TextArea = ({ label, placeholder, name }) => {
   return (
     <>
       <label className="label">
@@ -9,6 +9,7 @@ const TextArea = ({ label, placeholder }) => {
       <textarea
         className="textarea textarea-bordered h-36"
         placeholder={placeholder}
+        name={name}
       ></textarea>
     </>
   );
@@ -17,6 +18,7 @@ const TextArea = ({ label, placeholder }) => {
 TextArea.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default TextArea;
