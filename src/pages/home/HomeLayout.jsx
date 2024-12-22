@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import DeviceContext from "../../context/userDeviceInfo/DeviceContext";
 import Carousel from "./Carousel";
 import Banner from "./Banner";
+import CustomerReview from "./CustomerReview";
 
 const HomeLayout = () => {
   const { minHeight } = useContext(DeviceContext);
@@ -16,6 +17,7 @@ const HomeLayout = () => {
       >
         <Banner />
         <Carousel />
+        <CustomerReview />
       </div>
       <Footer />
     </>

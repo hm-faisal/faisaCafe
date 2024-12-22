@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <header
@@ -20,12 +22,12 @@ const Banner = () => {
             Indulge in the finest dishes crafted with love and fresh
             ingredients.
           </p>
-          <a
-            href="#menu"
+          <Link
+            to={"/all-foods"}
             className="inline-block mt-4 px-8 py-3 text-lg font-semibold text-white bg-orange-500 rounded-lg transition-colors hover:bg-orange-600"
           >
             Explore All Our delicious foods
-          </a>
+          </Link>
         </div>
       </div>
     </header>

@@ -46,12 +46,17 @@ const Carousel = () => {
               className="carousel-item w-full relative"
             >
               <img src={item.imageUrl} className="w-full" />
-              <div className="absolute w-full h-full flex justify-center items-center flex-col gap-4">
-                <h2 className="text-4xl font-bold text-black">{item.title}</h2>
-                <p className="text-lg text-black text-center">
+              <div className="absolute w-full h-full flex justify-center items-center flex-col gap-4 text-white">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide">
+                  {item.title}
+                </h2>
+                <p className="text-lg sm:text-xl lg:text-2xl">
                   {item.description}
                 </p>
-                <Link to={"/all-foods"} className="btn btn-neutral">
+                <Link
+                  to={"/all-foods"}
+                  className="inline-block mt-4 px-8 py-3 text-lg font-semibold text-white bg-orange-500 rounded-lg transition-colors hover:bg-orange-600"
+                >
                   Go to all food
                 </Link>
               </div>
