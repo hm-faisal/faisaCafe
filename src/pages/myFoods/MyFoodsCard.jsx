@@ -14,8 +14,8 @@ const MyFoodsCard = ({ food }) => {
         <p>Category : {food.food_category}</p>
         <p>Quantity : {food.food_quantity}</p>
         <div className="card-actions justify-end">
-          <Link to={`/foods/${food._id}`} className="btn btn-primary">
-            See Details
+          <Link to={`/foods-update/${food._id}`} className="btn btn-primary">
+            Update
           </Link>
         </div>
       </div>

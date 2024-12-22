@@ -20,17 +20,31 @@ const PurchaseForm = ({ id }) => {
   const buyFoodHandler = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
-    const foodInfo = Object.fromEntries(form.entries());
+    const fromInfo = Object.fromEntries(form.entries());
+    const purchaseInfo = {
+      ...fromInfo,
+      OrderTime: moment().format("MMMM Do YYYY, h:mm:ss a"),
+    };
 
-    axiosBase
-      .post(`/buy/${id}`, foodInfo)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.success) {
-          swal("Food Ordered", `${res.data.message}`, "success");
-        }
-      })
-      .catch((e) => console.log(e));
+    const purchaseQuantity = parseInt(purchaseInfo.food_quantity);
+    const stockQuantity = parseInt(foodInfo.food_quantity);
+
+    console.log(purchaseQuantity, stockQuantity);
+
+    if (purchaseQuantity <= stockQuantity) {
+      axiosBase
+        .post(`/buy/${id}`, purchaseInfo)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.success) {
+            swal("Food Ordered", `${res.data.message}`, "success");
+          }
+        })
+        .catch((e) => console.log(e));
+    } else {
+      swal("Order Dismissed", "Sorry! we cannot place Your order", "error");
+      return;
+    }
   };
 
   return (
@@ -57,17 +71,11 @@ const PurchaseForm = ({ id }) => {
             readOnly={true}
           />
           <InputBox
-            label="Food Buying Date"
-            type="date"
-            name="food_Buy_Date"
-            defaultValue={moment().format("YYYY-MM-DD")}
-          />
-          <InputBox
             label="Username"
             name="added_by_name"
             type="text"
             placeholder=""
-            defaultValue={user?.displayName}
+            defaultValue={user.displayName}
             readOnly={true}
           />
           <InputBox
