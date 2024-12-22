@@ -42,8 +42,6 @@ const AuthProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(user);
-
   // Register New user with email password
 
   const signUpUserWithEmailPassword = (email, password) => {

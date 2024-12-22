@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
 
-const InputBox = ({ label, type, placeholder, defaultValue, readOnly }) => {
+const InputBox = ({
+  label,
+  type,
+  placeholder,
+  defaultValue,
+  readOnly,
+  name,
+}) => {
   return (
     <>
       <div className="form-control">
@@ -9,6 +16,7 @@ const InputBox = ({ label, type, placeholder, defaultValue, readOnly }) => {
         </label>
         <input
           type={type}
+          name={name}
           placeholder={placeholder}
           className="input input-bordered"
           defaultValue={defaultValue && defaultValue}
@@ -25,6 +33,7 @@ InputBox.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.string,
+  name: PropTypes.string,
   readOnly: PropTypes.bool,
 };
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <header
+    <div
       className="relative h-screen bg-cover bg-center w-full"
       style={{
         backgroundImage:
@@ -30,7 +30,7 @@ const Banner = () => {
           </Link>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 

@@ -7,3 +7,8 @@ a.active {
   color: #fff;
   font-weight: 700;
 }
+a.breadcrumbs.active {
+  background: inherit;
+  color: #fff;
+  font-weight: 700;
+}
