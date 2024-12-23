@@ -2,23 +2,33 @@ import InputBox from "../../components/InputBox";
 import TextArea from "../../components/TextArea";
 import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
-import useAxios from "../../hooks/useAxios";
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const AddFoodForm = () => {
   const { user } = useAuth();
-  const axiosBase = useAxios();
+  const axiosBase = useAxiosSecure();
+  const navigate = useNavigate();
   const addFoodHandler = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const foodInfo = Object.fromEntries(form.entries());
+    foodInfo.already_sell = 0;
 
     axiosBase
       .post("/add-food", foodInfo)
       .then((res) => {
-        if (res.data.success) {
+        if (res.data) {
           swal("Food Added", "successfully added your food", "success");
+          navigate("/my-added-foods");
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e) =>
+        swal(
+          "Unauthorize or Forbidden Access",
+          `Please Login Again \n Message: ${e.response.data.message}`,
+          "warning"
+        )
+      );
   };
   return (
     <>

@@ -1,20 +1,27 @@
 import Header from "./../../components/Header/Header";
 import Footer from "./../../components/Footer";
-import useAxios from "../../hooks/useAxios";
 import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import MyFoodsCard from "./MyFoodsCard";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import swal from "sweetalert";
 
 const MyFoodsLayout = () => {
-  const axiosBase = useAxios();
+  const axiosBase = useAxiosSecure();
   const { user } = useAuth();
   const [myFoods, setMyFoods] = useState([]);
 
   useEffect(() => {
     axiosBase
-      .get(`/all-foods?email=${user.email}`)
+      .get(`/all-my-foods?email=${user.email}`)
       .then((res) => setMyFoods(res.data))
-      .catch((e) => console.log(e));
+      .catch((e) =>
+        swal(
+          "Unauthorize or Forbidden Access",
+          `Please Login Again \n Message: ${e.response.data.message}`,
+          "warning"
+        )
+      );
   }, []);
   return (
     <>

@@ -1,11 +1,11 @@
-import { axios } from "axios";
+import axios from "axios";
 import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { swal } from "sweetalert";
+import swal from "sweetalert";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "http://localhost:5000",
   withCredentials: true,
 });
 
