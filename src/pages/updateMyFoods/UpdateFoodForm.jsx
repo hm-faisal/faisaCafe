@@ -11,8 +11,6 @@ const UpdateFoodForm = ({ food }) => {
   const axiosBase = useAxios();
   const navigate = useNavigate();
 
-  console.log(food?.food_quantity);
-
   const updatedFoodInfo = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -28,6 +26,7 @@ const UpdateFoodForm = ({ food }) => {
       })
       .catch((e) => console.log(e));
   };
+
   return (
     <>
       <div className="max-w-xl mx-auto">

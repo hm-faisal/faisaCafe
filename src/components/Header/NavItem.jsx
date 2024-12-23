@@ -16,6 +16,9 @@ const NavItem = () => {
       <NavLink to={"/my-added-foods"} className={navLinkClassName}>
         My Foods
       </NavLink>
+      <NavLink to={"/my-orders"} className={navLinkClassName}>
+        My Orders
+      </NavLink>
       {/* <NavLink className={'font-medium'}></NavLink> */}
     </>
   );

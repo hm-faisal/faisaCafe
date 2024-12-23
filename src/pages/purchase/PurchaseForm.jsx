@@ -72,7 +72,7 @@ const PurchaseForm = ({ id }) => {
           />
           <InputBox
             label="Username"
-            name="added_by_name"
+            name="ordered_by_name"
             type="text"
             placeholder=""
             defaultValue={user.displayName}
@@ -80,7 +80,7 @@ const PurchaseForm = ({ id }) => {
           />
           <InputBox
             label="Email"
-            name="added_by_email"
+            name="ordered_by_email"
             type="email"
             defaultValue={user.email}
             readOnly={true}

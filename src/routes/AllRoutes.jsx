@@ -9,6 +9,7 @@ import FoodLayout from "../pages/food/FoodLayout";
 import PurchaseLayout from "../pages/purchase/PurchaseLayout";
 import MyFoodsLayout from "../pages/myFoods/MyFoodsLayout";
 import UpdateMyFoodsLayout from "../pages/updateMyFoods/UpdateMyFoodsLayout";
+import MyOrdersLayout from "../pages/myOrders/MyOrdersLayout";
 const Router = () => {
   return (
     <>
@@ -33,6 +34,9 @@ const Router = () => {
 
         {/* My added foods update page  */}
         <Route path="foods-update/:id" element={<UpdateMyFoodsLayout />} />
+
+        {/* My Ordered page  */}
+        <Route path="my-orders" element={<MyOrdersLayout />} />
 
         {/* Auth Page  */}
         <Route path="/auth" element={<AuthLayout />}>
