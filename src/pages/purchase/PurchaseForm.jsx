@@ -5,10 +5,12 @@ import useAuth from "../../hooks/useAuth";
 import InputBox from "../../components/InputBox";
 import moment from "moment";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 const PurchaseForm = ({ id }) => {
   const { user } = useAuth();
   const axiosBase = useAxios();
+  const navigate = useNavigate();
   const [foodInfo, setFoodInfo] = useState({});
   useEffect(() => {
     axiosBase
@@ -38,6 +40,7 @@ const PurchaseForm = ({ id }) => {
           console.log(res.data);
           if (res.data.success) {
             swal("Food Ordered", `${res.data.message}`, "success");
+            navigate("/all-foods");
           }
         })
         .catch((e) => console.log(e));

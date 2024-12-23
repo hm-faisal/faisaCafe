@@ -10,6 +10,7 @@ import PurchaseLayout from "../pages/purchase/PurchaseLayout";
 import MyFoodsLayout from "../pages/myFoods/MyFoodsLayout";
 import UpdateMyFoodsLayout from "../pages/updateMyFoods/UpdateMyFoodsLayout";
 import MyOrdersLayout from "../pages/myOrders/MyOrdersLayout";
+import PrivateRoute from "./PrivateRoute";
 const Router = () => {
   return (
     <>
@@ -18,7 +19,14 @@ const Router = () => {
         <Route path="/" element={<HomeLayout />} />
 
         {/* Add Food Page  */}
-        <Route path="add-food" element={<AddFoodLayout />} />
+        <Route
+          path="add-food"
+          element={
+            <PrivateRoute>
+              <AddFoodLayout />
+            </PrivateRoute>
+          }
+        />
 
         {/* All Food Page  */}
         <Route path="all-foods" element={<AllFoodsLayout />} />
@@ -27,16 +35,44 @@ const Router = () => {
         <Route path="foods/:id" element={<FoodLayout />} />
 
         {/* Purchase page  */}
-        <Route path="purchase/:id" element={<PurchaseLayout />} />
+        <Route
+          path="purchase/:id"
+          element={
+            <PrivateRoute>
+              <PurchaseLayout />
+            </PrivateRoute>
+          }
+        />
 
         {/* My added foods page  */}
-        <Route path="my-added-foods" element={<MyFoodsLayout />} />
+        <Route
+          path="my-added-foods"
+          element={
+            <PrivateRoute>
+              <MyFoodsLayout />
+            </PrivateRoute>
+          }
+        />
 
         {/* My added foods update page  */}
-        <Route path="foods-update/:id" element={<UpdateMyFoodsLayout />} />
+        <Route
+          path="foods-update/:id"
+          element={
+            <PrivateRoute>
+              <UpdateMyFoodsLayout />
+            </PrivateRoute>
+          }
+        />
 
         {/* My Ordered page  */}
-        <Route path="my-orders" element={<MyOrdersLayout />} />
+        <Route
+          path="my-orders"
+          element={
+            <PrivateRoute>
+              <MyOrdersLayout />
+            </PrivateRoute>
+          }
+        />
 
         {/* Auth Page  */}
         <Route path="/auth" element={<AuthLayout />}>
