@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 import swal from "sweetalert";
 import useAuth from "../../hooks/useAuth";
 import { FaUser } from "react-icons/fa6";
+const navLinkClassName = "btn font-medium";
 
 const siteName = "FaisaCafe";
 
@@ -44,16 +45,16 @@ const Header = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-2"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[100] mt-3 w-52 p-2 shadow space-y-2"
               >
-                <NavItem />
+                <NavItem navLinkClassName={navLinkClassName} />
               </ul>
             </div>
             <a className="btn btn-ghost text-xl uppercase">{siteName}</a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-2">
-              <NavItem />
+              <NavItem navLinkClassName={navLinkClassName} />
             </ul>
           </div>
           <div className="navbar-end space-x-2">
@@ -71,11 +72,32 @@ const Header = () => {
               <>
                 <div className="h-12 w-12 flex justify-center items-center rounded-full border">
                   {user && user.photoURL ? (
-                    <img
-                      src={user.photoURL}
-                      alt=""
-                      className="h-12 w-12 rounded-full"
-                    />
+                    <div className="dropdown">
+                      <div tabIndex={0} role="button" className="">
+                        <img
+                          src={user.photoURL}
+                          alt=""
+                          className="h-12 w-12 rounded-full"
+                        />
+                      </div>
+                      <ul
+                        tabIndex={0}
+                        className="menu menu-sm right-0 dropdown-content bg-base-100 rounded-box z-[100] mt-3 w-52 p-2 shadow space-y-2"
+                      >
+                        <NavLink
+                          to={"/my-added-foods"}
+                          className={navLinkClassName}
+                        >
+                          My Foods
+                        </NavLink>
+                        <NavLink to={"/add-food"} className={navLinkClassName}>
+                          add-food
+                        </NavLink>
+                        <NavLink to={"/my-orders"} className={navLinkClassName}>
+                          My Orders
+                        </NavLink>
+                      </ul>
+                    </div>
                   ) : (
                     <FaUser />
                   )}

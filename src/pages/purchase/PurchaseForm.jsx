@@ -45,7 +45,7 @@ const PurchaseForm = ({ id }) => {
         })
         .catch((e) => console.log(e));
     } else {
-      swal("Order Dismissed", "Sorry! we cannot place Your order", "error");
+      swal("Order Cannot placed", "Sorry! we cannot place Your order", "error");
       return;
     }
   };

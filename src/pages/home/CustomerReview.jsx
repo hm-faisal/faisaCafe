@@ -33,7 +33,7 @@ const CustomerReview = () => {
   ];
 
   return (
-    <div className=" mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className=" mx-auto py-12 px-4 sm:px-6 lg:px-8 w-full">
       <h2 className="text-2xl font-bold text-gray-800">Customer Reviews</h2>
       <div className="mt-6 space-y-6">
         <Marquee className="">

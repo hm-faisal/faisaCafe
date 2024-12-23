@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
-const navLinkClassName = "btn font-medium";
+import { PropTypes } from "prop-types";
 
-const NavItem = () => {
+const NavItem = ({ navLinkClassName }) => {
   return (
     <>
       <NavLink to={"/"} className={navLinkClassName}>
@@ -13,15 +13,13 @@ const NavItem = () => {
       <NavLink to={"/gallery"} className={navLinkClassName}>
         Gallery
       </NavLink>
-      <NavLink to={"/my-added-foods"} className={navLinkClassName}>
-        My Foods
-      </NavLink>
-      <NavLink to={"/my-orders"} className={navLinkClassName}>
-        My Orders
-      </NavLink>
+
       {/* <NavLink className={'font-medium'}></NavLink> */}
     </>
   );
+};
+NavItem.propTypes = {
+  navLinkClassName: PropTypes.string,
 };
 
 export default NavItem;
