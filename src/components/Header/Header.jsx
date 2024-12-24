@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <>
       <div className="dark:bg-black">
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 flex-col md:flex-row">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -96,7 +96,7 @@ const Header = () => {
                         <img
                           src={user.photoURL}
                           alt=""
-                          className="h-12 w-12 rounded-full"
+                          className="h-12 min-w-12 w-12 rounded-full"
                         />
                       </div>
                       <ul
