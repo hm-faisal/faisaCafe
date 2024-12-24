@@ -6,11 +6,13 @@ import Carousel from "./Carousel";
 import Banner from "./Banner";
 import CustomerReview from "./CustomerReview";
 import TopFoods from "./TopFoods";
+import useDevice from "../../hooks/useDevice";
 
 const HomeLayout = () => {
   const { minHeight } = useContext(DeviceContext);
+  const { darkTheme } = useDevice();
   return (
-    <>
+    <div data-theme={darkTheme ? "dark" : "light"}>
       <Header />
       <div
         className={`flex justify-center items-center flex-col`}
@@ -22,7 +24,7 @@ const HomeLayout = () => {
         <CustomerReview />
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -13,6 +13,7 @@ const FoodCard = ({ food }) => {
         <p>Origin : {food.food_origin}</p>
         <p>Category : {food.food_category}</p>
         <p>Quantity : {food.food_quantity}</p>
+        <p>Purchased : {food.already_sell}</p>
         <div className="card-actions justify-end">
           <Link to={`/foods/${food._id}`} className="btn btn-primary">
             See Details

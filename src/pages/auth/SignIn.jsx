@@ -37,7 +37,7 @@ const SignIn = () => {
             <div className="card bg-base-100 w-full  shrink-0 shadow-2xl flex-1">
               <form className="card-body" onSubmit={SignInUserByEmailPassword}>
                 <div className="form-control">
-                  <label className="label">
+                  <label className="label font-bold">
                     <span className="label-text">Email</span>
                   </label>
                   <input
@@ -49,7 +49,7 @@ const SignIn = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label">
+                  <label className="label font-bold">
                     <span className="label-text">Password</span>
                   </label>
                   <input

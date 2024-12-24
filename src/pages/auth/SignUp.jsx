@@ -42,7 +42,7 @@ const SignUp = () => {
                 onSubmit={registerUserByEmailPassword}
               >
                 <div className="form-control">
-                  <label className="label">
+                  <label className="label font-bold">
                     <span className="label-text">Name</span>
                   </label>
                   <input
@@ -54,7 +54,7 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label">
+                  <label className="label font-bold">
                     <span className="label-text">Email</span>
                   </label>
                   <input
@@ -66,7 +66,7 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label">
+                  <label className="label font-bold">
                     <span className="label-text">Photo URL</span>
                   </label>
                   <input
@@ -78,7 +78,7 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label">
+                  <label className="label font-bold">
                     <span className="label-text">Password</span>
                   </label>
                   <input

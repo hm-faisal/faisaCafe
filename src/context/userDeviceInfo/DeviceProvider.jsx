@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import DeviceContext from "./DeviceContext";
+import { useState } from "react";
 
 const DeviceProvider = ({ children }) => {
+  const [darkTheme, setDarkTheme] = useState(false);
   /**
    * Height of header and footer
    * header -> 80 Px
@@ -13,7 +15,7 @@ const DeviceProvider = ({ children }) => {
       ? window.innerHeight - totalSkipHeight
       : "";
 
-  const DeviceContextValue = { minHeight };
+  const DeviceContextValue = { minHeight, darkTheme, setDarkTheme };
 
   return (
     <>

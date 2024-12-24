@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header/Header";
 import { Outlet } from "react-router";
-import DeviceContext from "../../context/userDeviceInfo/DeviceContext";
+import useDevice from "../../hooks/useDevice";
 
 const AuthLayout = () => {
-  const { minHeight } = useContext(DeviceContext);
+  const { minHeight, darkTheme } = useDevice();
   return (
-    <>
+    <div data-theme={darkTheme ? "dark" : "light"}>
       <Header />
       <div className="bg-base-200">
         <div
@@ -19,7 +18,7 @@ const AuthLayout = () => {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

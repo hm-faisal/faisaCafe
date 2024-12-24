@@ -11,12 +11,22 @@ import MyFoodsLayout from "../pages/myFoods/MyFoodsLayout";
 import UpdateMyFoodsLayout from "../pages/updateMyFoods/UpdateMyFoodsLayout";
 import MyOrdersLayout from "../pages/myOrders/MyOrdersLayout";
 import PrivateRoute from "./PrivateRoute";
+import Gallery from "../pages/gallery/Gallery";
 const Router = () => {
   return (
     <>
       <Routes>
         {/* Home Page  */}
         <Route path="/" element={<HomeLayout />} />
+
+        {/* All Food Page  */}
+        <Route path="all-foods" element={<AllFoodsLayout />} />
+
+        {/* Gallery Page  */}
+        <Route path="gallery" element={<Gallery />} />
+
+        {/* Food Details Page  */}
+        <Route path="foods/:id" element={<FoodLayout />} />
 
         {/* Add Food Page  */}
         <Route
@@ -27,12 +37,6 @@ const Router = () => {
             </PrivateRoute>
           }
         />
-
-        {/* All Food Page  */}
-        <Route path="all-foods" element={<AllFoodsLayout />} />
-
-        {/* Food Details Page  */}
-        <Route path="foods/:id" element={<FoodLayout />} />
 
         {/* Purchase page  */}
         <Route

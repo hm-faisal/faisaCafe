@@ -11,7 +11,7 @@ const InputBox = ({
   return (
     <>
       <div className="form-control">
-        <label className="label">
+        <label className="label font-bold">
           <span className="label-text">{label}</span>
         </label>
         <input

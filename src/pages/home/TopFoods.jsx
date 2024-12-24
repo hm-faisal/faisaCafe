@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxios from "../../hooks/useAxios";
 import FoodCard from "./FoodCard";
+import { Link } from "react-router-dom";
 
 const TopFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -20,6 +21,9 @@ const TopFoods = () => {
           <FoodCard key={food._id} food={food} />
         ))}
       </div>
+      <Link to={"/all-foods"} className="btn btn-accent ">
+        See All Items
+      </Link>
     </>
   );
 };

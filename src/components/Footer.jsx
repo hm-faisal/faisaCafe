@@ -1,7 +1,10 @@
+import useDevice from "../hooks/useDevice";
+
 const Footer = () => {
+  const { darkTheme } = useDevice();
   return (
     <>
-      <div>
+      <div data-theme={darkTheme ? "dark" : "light"}>
         <footer className="footer footer-center bg-neutral text-neutral-content p-10">
           <aside>
             <svg

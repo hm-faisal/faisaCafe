@@ -3,12 +3,16 @@ import { NavLink } from "react-router";
 import swal from "sweetalert";
 import useAuth from "../../hooks/useAuth";
 import { FaUser } from "react-icons/fa6";
+import useDevice from "../../hooks/useDevice";
+import { IoMdSunny, IoMdMoon } from "react-icons/io";
+
 const navLinkClassName = "btn font-medium";
 
 const siteName = "FaisaCafe";
 
 const Header = () => {
   const { user, loading, setLoading, signOutUser } = useAuth();
+  const { darkTheme, setDarkTheme } = useDevice();
 
   const userSignOutHandler = () => {
     signOutUser().then(() => {
@@ -19,7 +23,7 @@ const Header = () => {
 
   return (
     <>
-      <div>
+      <div className="dark:bg-black">
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -58,6 +62,21 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end space-x-2">
+            {darkTheme ? (
+              <button
+                onClick={() => setDarkTheme(false)}
+                className="btn text-xl"
+              >
+                <IoMdSunny />
+              </button>
+            ) : (
+              <button
+                onClick={() => setDarkTheme(true)}
+                className="btn text-xl"
+              >
+                <IoMdMoon />
+              </button>
+            )}
             {loading ? (
               <>
                 <div className="flex items-center gap-4">
