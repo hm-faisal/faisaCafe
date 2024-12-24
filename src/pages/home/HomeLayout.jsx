@@ -5,6 +5,7 @@ import DeviceContext from "../../context/userDeviceInfo/DeviceContext";
 import Carousel from "./Carousel";
 import Banner from "./Banner";
 import CustomerReview from "./CustomerReview";
+import TopFoods from "./TopFoods";
 
 const HomeLayout = () => {
   const { minHeight } = useContext(DeviceContext);
@@ -17,6 +18,7 @@ const HomeLayout = () => {
       >
         <Banner />
         <Carousel />
+        <TopFoods />
         <CustomerReview />
       </div>
       <Footer />
