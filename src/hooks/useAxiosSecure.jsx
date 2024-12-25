@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import swal from "sweetalert";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://faisalcafeserver.vercel.app",
   withCredentials: true,
 });
 
