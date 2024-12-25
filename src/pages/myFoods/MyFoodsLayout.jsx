@@ -6,12 +6,13 @@ import MyFoodsCard from "./MyFoodsCard";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import swal from "sweetalert";
 import useDevice from "../../hooks/useDevice";
+import { Helmet } from "react-helmet";
 
 const MyFoodsLayout = () => {
   const axiosBase = useAxiosSecure();
   const { user } = useAuth();
   const [myFoods, setMyFoods] = useState([]);
-  const { darkTheme } = useDevice();
+  const { darkTheme, siteName } = useDevice();
 
   useEffect(() => {
     axiosBase
@@ -27,6 +28,9 @@ const MyFoodsLayout = () => {
   }, []);
   return (
     <div data-theme={darkTheme ? "dark" : "light"}>
+      <Helmet>
+        <title> My Foods || {siteName}</title>
+      </Helmet>
       <Header />
       <h2 className="text-4xl sm:text-5xl my-8 font-bold tracking-wide text-center">
         All Food Added By {user.displayName}

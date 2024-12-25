@@ -3,6 +3,7 @@ import DeviceContext from "./DeviceContext";
 import { useState } from "react";
 
 const DeviceProvider = ({ children }) => {
+  const siteName = "FaisaCafe";
   const [darkTheme, setDarkTheme] = useState(false);
   /**
    * Height of header and footer
@@ -15,7 +16,7 @@ const DeviceProvider = ({ children }) => {
       ? window.innerHeight - totalSkipHeight
       : "";
 
-  const DeviceContextValue = { minHeight, darkTheme, setDarkTheme };
+  const DeviceContextValue = { minHeight, siteName, darkTheme, setDarkTheme };
 
   return (
     <>

@@ -1,56 +1,40 @@
+import PropTypes from "prop-types";
 import * as React from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import "./gallery.css";
 
-export default function LightBox() {
+export default function LightBox({ img }) {
   const [open, setOpen] = React.useState(false);
-
   return (
     <>
-      <button
+      <div
         type="button"
         onClick={() => setOpen(true)}
-        className="block mx-auto my-12 text-center btn btn-success"
+        className="block mx-auto my-12 text-center"
       >
-        Open Gallery Slide
-      </button>
+        <div className="box">
+          <img src={img.thumb} alt="" />
+          <div className="overlay rounded-md">
+            <h2>{img.title}</h2>
+            <p>{img.description}</p>
+          </div>
+        </div>
+      </div>
 
       <Lightbox
         open={open}
         close={() => setOpen(false)}
         slides={[
           {
-            src: "https://www.themealdb.com/images/media/meals/yypwwq1511304979.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/2dsltq1560461468.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/g046bb1663960946.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/1c5oso1614347493.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/7ttta31593350374.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/1529445434.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/vytypy1511883765.jpg",
-          },
-          {
-            src: "https://www.themealdb.com/images/media/meals/xxrxux1503070723.jpg",
+            src: img.thumb,
           },
         ]}
       />
     </>
   );
 }
+
+LightBox.propTypes = {
+  img: PropTypes.object,
+};

@@ -2,9 +2,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
+import useDevice from "../../hooks/useDevice";
 
 const SignUp = () => {
   const { setUser, signUpUserWithEmailPassword, updateUser } = useAuth();
+  const { siteName } = useDevice();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -26,6 +29,9 @@ const SignUp = () => {
   return (
     <>
       <div>
+        <Helmet>
+          <title>Sign Up || {siteName}</title>
+        </Helmet>
         <div className="hero">
           <div className="hero-content flex-col lg:flex-row-reverse gap-12">
             <div className="text-center lg:text-left flex-1">

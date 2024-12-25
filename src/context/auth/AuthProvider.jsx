@@ -24,21 +24,64 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      const userEmail = { email: currentUser?.email };
-
       if (currentUser) {
+        const user = { email: currentUser.email };
         axiosBase
-          .post("/jwt", userEmail, { withCredentials: true })
-          .then()
+          .post("/jwt", user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("Sign In Token", res.data);
+            setUser(currentUser);
+            setLoading(false);
+          })
           .catch((e) => console.log(e));
-        setUser(currentUser);
-        setLoading(false);
       } else {
-        setUser(null);
-        setLoading(false);
+        axiosBase
+          .post(
+            "/logout",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("Sign Out Token", res.data);
+            setLoading(false);
+          })
+          .catch((e) => console.log(e));
       }
+      setUser(currentUser);
     });
-    return () => unsubscribe();
+    return unsubscribe;
+    // const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    //   const userEmail = { email: currentUser?.email };
+
+    //   if (currentUser?.email) {
+    //     axiosBase
+    //       .post("/jwt", userEmail, { withCredentials: true })
+    //       .then()
+    //       .catch((e) => console.log(e));
+    //     setUser(currentUser);
+    //     setLoading(false);
+    //   } else {
+    //     axiosBase
+    //       .post(
+    //         "/logout",
+    //         {},
+    //         {
+    //           withCredentials: true,
+    //         }
+    //       )
+    //       .then((res) => {
+    //         console.log("Sign Out Token", res.data);
+    //         setUser(null);
+    //         setLoading(false);
+    //       })
+    //       .catch((e) => console.log(e));
+    //   }
+    // });
+    // return () => unsubscribe();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -2,9 +2,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
+import useDevice from "../../hooks/useDevice";
 
 const SignIn = () => {
   const { setUser, signInUserWithEmailPassword } = useAuth();
+  const { siteName } = useDevice();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -23,6 +26,9 @@ const SignIn = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Sign In || {siteName}</title>
+      </Helmet>
       <div>
         <div className="hero">
           <div className="hero-content flex-col lg:flex-row-reverse gap-12">
@@ -60,9 +66,18 @@ const SignIn = () => {
                     required
                   />
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
+                    <button
+                      onClick={() => {
+                        swal(
+                          "Forgot Your Password",
+                          "Your Request is being processing",
+                          "warning"
+                        );
+                      }}
+                      className="text-sky-900"
+                    >
+                      Forget Password ?
+                    </button>
                   </label>
                 </div>
                 <div className="form-control mt-6">
