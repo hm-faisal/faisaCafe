@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
+import swal from "sweetalert";
+import { Navigate } from "react-router-dom";
 
 const MyOrders = () => {
   const { user } = useAuth();
@@ -15,7 +17,14 @@ const MyOrders = () => {
   }, []);
 
   const deleteOrder = (id) => {
-    axiosBase.delete(`/delete/${id}`).then((res) => console.log(res.data));
+    axiosBase.delete(`/delete/${id}`).then((res) => {
+      swal(
+        "order Cancel successful",
+        "successfully cancel your Order",
+        "success"
+      );
+      return <Navigate to={"/my-orders"} />;
+    });
   };
   return (
     <>
