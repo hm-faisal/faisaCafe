@@ -15,7 +15,6 @@ const MyOrders = () => {
   }, []);
 
   const deleteOrder = (id) => {
-    console.log(id);
     axiosBase.delete(`/delete/${id}`).then((res) => console.log(res.data));
   };
   return (

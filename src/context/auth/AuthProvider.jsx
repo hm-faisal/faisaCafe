@@ -30,8 +30,7 @@ const AuthProvider = ({ children }) => {
           .post("/jwt", user, {
             withCredentials: true,
           })
-          .then((res) => {
-            console.log("Sign In Token", res.data);
+          .then(() => {
             setUser(currentUser);
             setLoading(false);
           })
@@ -54,35 +53,6 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
     });
     return unsubscribe;
-    // const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //   const userEmail = { email: currentUser?.email };
-
-    //   if (currentUser?.email) {
-    //     axiosBase
-    //       .post("/jwt", userEmail, { withCredentials: true })
-    //       .then()
-    //       .catch((e) => console.log(e));
-    //     setUser(currentUser);
-    //     setLoading(false);
-    //   } else {
-    //     axiosBase
-    //       .post(
-    //         "/logout",
-    //         {},
-    //         {
-    //           withCredentials: true,
-    //         }
-    //       )
-    //       .then((res) => {
-    //         console.log("Sign Out Token", res.data);
-    //         setUser(null);
-    //         setLoading(false);
-    //       })
-    //       .catch((e) => console.log(e));
-    //   }
-    // });
-    // return () => unsubscribe();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Register New user with email password
