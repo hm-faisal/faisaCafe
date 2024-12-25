@@ -6,6 +6,7 @@ import swal from "sweetalert";
 
 const axiosInstance = axios.create({
   baseURL: "https://faisalcafeserver.vercel.app",
+  // baseURL: "http://localhost:5000",
   withCredentials: true,
 });
 

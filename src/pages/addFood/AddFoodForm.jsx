@@ -15,7 +15,7 @@ const AddFoodForm = () => {
     foodInfo.already_sell = 0;
 
     axiosBase
-      .post("/add-food", foodInfo)
+      .post(`/add-food?email=${user.email}`, foodInfo)
       .then((res) => {
         if (res.data) {
           swal("Food Added", "successfully added your food", "success");

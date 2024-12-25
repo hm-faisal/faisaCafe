@@ -23,11 +23,11 @@ const FoodDetails = ({ id }) => {
           />
           <div className="flex-1">
             <h1 className="text-5xl font-bold">{foodInfo.food_name}</h1>
-            <p className="py-1">Category: {foodInfo.food_category}</p>
-            <p className="py-1">Stock: {foodInfo.food_quantity}</p>
-            <p className="py-1">Price: {foodInfo.food_price} $</p>
-            <p className="py-1">Already Sell: {foodInfo.already_sell || 0} </p>
-            <p className="py-1">Food Origin: {foodInfo.food_origin}</p>
+            <p className="py-1">Category : {foodInfo.food_category}</p>
+            <p className="py-1">Stock : {foodInfo.food_quantity}</p>
+            <p className="py-1">Price : {foodInfo.food_price} $</p>
+            <p className="py-1">purchased : {foodInfo.already_sell || 0} </p>
+            <p className="py-1">Food Origin : {foodInfo.food_origin}</p>
             <p className="py-1">
               Description:
               {foodInfo.food_description

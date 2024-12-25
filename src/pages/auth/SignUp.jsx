@@ -17,12 +17,24 @@ const SignUp = () => {
     const { name, email, profile, password } = Object.fromEntries(
       form.entries()
     );
+    const validatePassword = (password) => {
+      const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+      return pattern.test(password);
+    };
+    if (!validatePassword(password)) {
+      swal(
+        "Password Validation Failed",
+        "Ensure an Uppercase letter, a lowercase letter, Length 6 character Long",
+        "error"
+      );
+      return;
+    }
     signUpUserWithEmailPassword(email, password)
       .then((res) => {
         updateUser(name, profile).catch((e) => console.log(e));
         setUser(res.user);
         navigate(location.state ? location?.state : "/");
-        swal("Sign In ", "successfully Sign In", "success");
+        swal("Sign Up ", "successfully Registered", "success");
       })
       .catch((e) => console.log(e));
   };

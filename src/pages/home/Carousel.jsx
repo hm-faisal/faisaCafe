@@ -38,7 +38,7 @@ const Carousel = () => {
   return (
     <>
       <div>
-        <div className="carousel w-full h-screen">
+        <div className="carousel w-full h-[80vh]">
           {carouselItems.map((item) => (
             <div
               key={item.id}

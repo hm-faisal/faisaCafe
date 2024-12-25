@@ -125,7 +125,7 @@ const Header = () => {
                   className="btn btn-neutral"
                   onClick={userSignOutHandler}
                 >
-                  Logout
+                  Sign Out
                 </button>
               </>
             ) : (
