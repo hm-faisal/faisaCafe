@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import swal from "sweetalert";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
   const { user } = useAuth();
   const axiosBase = useAxios();
+  const navigate = useNavigate();
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
@@ -17,13 +18,13 @@ const MyOrders = () => {
   }, []);
 
   const deleteOrder = (id) => {
-    axiosBase.delete(`/delete/${id}`).then((res) => {
+    axiosBase.delete(`/delete/${id}`).then(() => {
       swal(
         "order Cancel successful",
         "successfully cancel your Order",
         "success"
       );
-      return <Navigate to={"/my-orders"} />;
+      navigate("/all-foods");
     });
   };
   return (
