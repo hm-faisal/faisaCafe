@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 a.active {
-  background: #191e24;
+  background: #ea580c;
   color: #fff;
   font-weight: 700;
 }

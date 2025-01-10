@@ -20,8 +20,8 @@ const HomeLayout = () => {
         style={{ minHeight: minHeight ? minHeight : "49vh" }}
       >
         <Banner />
-        <Carousel />
         <TopFoods />
+        <Carousel />
         <CustomerReview />
       </div>
       <Footer />

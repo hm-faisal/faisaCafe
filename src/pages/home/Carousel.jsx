@@ -38,14 +38,14 @@ const Carousel = () => {
   return (
     <>
       <div>
-        <div className="carousel w-full h-[80vh]">
+        <div className="carousel w-full h-[65vh]">
           {carouselItems.map((item) => (
             <div
               key={item.id}
               id={`item${item.id}`}
               className="carousel-item w-full relative"
             >
-              <img src={item.imageUrl} className="w-full" />
+              <img src={item.imageUrl} className="w-full object-cover" />
               <div className="absolute w-full h-full flex justify-center items-center flex-col gap-4 text-white">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide">
                   {item.title}

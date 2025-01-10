@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa6";
 import useDevice from "../../hooks/useDevice";
 import { IoMdSunny, IoMdMoon } from "react-icons/io";
 
-const navLinkClassName = "btn font-medium";
+const navLinkClassName = "btn font-medium hover:bg-orange-500 hover:text-white";
 
 const siteName = "FaisaCafe";
 
@@ -23,8 +23,8 @@ const Header = () => {
 
   return (
     <>
-      <div className="dark:bg-black">
-        <div className="navbar bg-base-100 flex-col md:flex-row">
+      <div className="dark:bg-black bg-white text-white dark:text-black">
+        <div className="navbar bg-black bg-opacity-25 fixed top-0 z-[999] flex-col md:flex-row">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -54,7 +54,7 @@ const Header = () => {
                 <NavItem navLinkClassName={navLinkClassName} />
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl uppercase">{siteName}</a>
+            <a className="btn text-xl uppercase">{siteName}</a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-2">
@@ -122,7 +122,7 @@ const Header = () => {
                   )}
                 </div>
                 <button
-                  className="btn btn-neutral"
+                  className="btn hover:bg-orange-500 hover:text-white"
                   onClick={userSignOutHandler}
                 >
                   Sign Out
@@ -130,10 +130,16 @@ const Header = () => {
               </>
             ) : (
               <>
-                <NavLink to={"/auth/signIn"} className={"btn btn-neutral"}>
+                <NavLink
+                  to={"/auth/signIn"}
+                  className={"btn hover:bg-orange-500 hover:text-white"}
+                >
                   Sign In
                 </NavLink>
-                <NavLink to={"/auth/signUp"} className={"btn btn-neutral"}>
+                <NavLink
+                  to={"/auth/signUp"}
+                  className={"btn hover:bg-orange-500 hover:text-white"}
+                >
                   Sign Up
                 </NavLink>
               </>
