@@ -9,16 +9,47 @@ const FoodCard = ({ food }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{food.food_name}</h2>
-        <p>Price : {food.food_price} $</p>
-        <p>Origin : {food.food_origin}</p>
-        <p>Category : {food.food_category}</p>
-        <p>Quantity : {food.food_quantity}</p>
-        <p>Purchased : {food.already_sell || 0}</p>
-        <div className="card-actions justify-end">
-          <Link to={`/foods/${food._id}`} className="btn btn-primary">
-            See Details
-          </Link>
-        </div>
+        <table className="table">
+          <tbody>
+            <tr>
+              <th>Price</th>
+              <th>:</th>
+              <td>{food.food_price} $</td>
+            </tr>
+            <tr>
+              <th>Origin</th>
+              <th>:</th>
+              <td>{food.food_origin}</td>
+            </tr>
+            <tr>
+              <th>Category</th>
+              <th>:</th>
+              <td>{food.food_category}</td>
+            </tr>
+            <tr>
+              <th>Quantity</th>
+              <th>:</th>
+              <td>{food.food_quantity}</td>
+            </tr>
+            <tr>
+              <th>Purchased</th>
+              <th>:</th>
+              <td>{food.already_sell}</td>
+            </tr>
+            <tr>
+              <th></th>
+              <td></td>
+              <td>
+                <Link
+                  to={`/foods/${food._id}`}
+                  className="btn text-white bg-orange-500 hover:bg-orange-600"
+                >
+                  See Details
+                </Link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
