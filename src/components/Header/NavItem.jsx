@@ -13,6 +13,12 @@ const NavItem = ({ navLinkClassName }) => {
       <NavLink to={"/gallery"} className={navLinkClassName}>
         Gallery
       </NavLink>
+      <NavLink to={"/faq"} className={navLinkClassName}>
+        FAQ
+      </NavLink>
+      <NavLink to={"/contact"} className={navLinkClassName}>
+        Contact
+      </NavLink>
 
       {/* <NavLink className={'font-medium'}></NavLink> */}
     </>

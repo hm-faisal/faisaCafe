@@ -8,7 +8,7 @@ const FoodCard = ({ food }) => {
         <img src={food.food_img_url} alt="Shoes" className="w-full" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{food.food_name}</h2>
+        <h2 className="card-title px-4">{food.food_name}</h2>
         <table className="table">
           <tbody>
             <tr>

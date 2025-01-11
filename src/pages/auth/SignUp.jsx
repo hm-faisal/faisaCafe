@@ -100,7 +100,9 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Register </button>
+                  <button className="btn  text-white bg-orange-500 hover:bg-orange-600">
+                    Register{" "}
+                  </button>
                 </div>
               </form>
               <div className="card-body -mt-16">
@@ -111,7 +113,7 @@ const SignUp = () => {
                   Already sign up before,{" "}
                   <Link
                     to={"/auth/signIn"}
-                    className="btn btn-link p-0 h-auto min-h-min text-sm"
+                    className=" text-orange-500 hover:text-orange-600 p-0 h-auto min-h-min text-sm"
                   >
                     Go to sign in page
                   </Link>

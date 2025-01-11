@@ -19,7 +19,7 @@ const TopFoods = () => {
       <h2 className="text-xl md:text-4xl font-bold mt-8">
         See Our Top Selling Foods
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 m-4 md:m-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-4 md:m-10">
         {foods.map((food) => (
           <FoodCard key={food._id} food={food} />
         ))}

@@ -73,7 +73,9 @@ const SignIn = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Sign In</button>
+                  <button className="btn text-white bg-orange-500 hover:bg-orange-600">
+                    Sign In
+                  </button>
                 </div>
               </form>
               <div className="card-body -mt-16">
@@ -84,7 +86,7 @@ const SignIn = () => {
                   don&apos;t sing up before,{" "}
                   <Link
                     to={"/auth/signUp"}
-                    className="btn btn-link p-0 h-auto min-h-min text-sm"
+                    className=" text-orange-500 hover:text-orange-600 p-0 h-auto min-h-min text-sm"
                   >
                     Go to sign up page
                   </Link>

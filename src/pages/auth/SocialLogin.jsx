@@ -16,7 +16,10 @@ const SocialLogin = () => {
   };
   return (
     <>
-      <button className="btn btn-accent -mt-1" onClick={signInHandler}>
+      <button
+        className="btn text-white bg-orange-500 hover:bg-orange-600  -mt-1"
+        onClick={signInHandler}
+      >
         Sign In with google{" "}
       </button>
     </>

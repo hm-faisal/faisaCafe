@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <>
       <div className="dark:bg-black bg-white text-white dark:text-black">
-        <div className="navbar bg-black bg-opacity-25 fixed top-0 z-[999] flex-col md:flex-row">
+        <div className="navbar bg-black bg-opacity-25 fixed py-0 px-10 top-0 z-[999] flex-col md:flex-row">
           <div className="navbar-start">
             <div className="dropdown">
               <div
