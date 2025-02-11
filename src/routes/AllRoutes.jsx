@@ -14,10 +14,14 @@ import PrivateRoute from "./PrivateRoute";
 import Gallery from "../pages/gallery/Gallery";
 import FAQPage from "../pages/faq/FAQPage";
 import ContactPage from "../pages/contact/ContactPage";
+import NotFound from "../pages/404/NotFound";
 const Router = () => {
   return (
     <>
       <Routes>
+        {/* 404 page */}
+        <Route path="*" element={<NotFound />} />
+
         {/* Home Page  */}
         <Route path="/" element={<HomeLayout />} />
 

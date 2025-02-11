@@ -6,6 +6,7 @@ import CustomerReview from "./CustomerReview";
 import TopFoods from "./TopFoods";
 import useDevice from "../../hooks/useDevice";
 import { Helmet } from "react-helmet";
+import Contact from "./contact";
 
 const HomeLayout = () => {
   const { darkTheme, minHeight, siteName } = useDevice();
@@ -23,6 +24,7 @@ const HomeLayout = () => {
         <TopFoods />
         <Carousel />
         <CustomerReview />
+        <Contact />
       </div>
       <Footer />
     </div>

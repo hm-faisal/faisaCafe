@@ -3,9 +3,10 @@ import useAxios from "../../hooks/useAxios";
 import FoodCard from "./FoodCard";
 
 const AllFoods = () => {
-  const axiosbase = useAxios();
+  const axiosBase = useAxios();
   const [foods, setFoods] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [sort, setSort] = useState("default");
 
   const searchHandler = (e) => {
     e.preventDefault();
@@ -15,13 +16,13 @@ const AllFoods = () => {
   };
 
   useEffect(() => {
-    axiosbase
-      .get(`/all-foods?search=${searchQuery}`)
+    axiosBase
+      .get(`/all-foods?search=${searchQuery}&sort=${sort}`)
       .then((res) => {
         setFoods(res.data);
       })
       .catch((e) => console.log(e));
-  }, [searchQuery]);
+  }, [sort, searchQuery]);
 
   return (
     <>
@@ -39,6 +40,15 @@ const AllFoods = () => {
             />
             <input type="submit" value={"Search"} className="btn" />
           </form>
+          <select
+            name="sort"
+            className="p-2 rounded mr-2"
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="default">Default</option>
+            <option value="price-low-to-high">Price Low to High</option>
+            <option value="price-high-to-low">Price High to Low</option>
+          </select>
         </div>
 
         {foods.length === 0 && <div>No Item Found</div>}
